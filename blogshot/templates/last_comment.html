@@ -1,0 +1,7 @@
+<div id='block_header'><h3>Последние комментарии:</h3></div>
+<ul>
+{%for post_r in posts_rated %}
+<li><a href='{{post_r.get_url}}'>{{post_r.title}}</a></li>
+{% endfor %}
+</ul>
+

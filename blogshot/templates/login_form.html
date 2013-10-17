@@ -1,0 +1,13 @@
+  <div id='popup'></div>
+  <div id='popup_window'></div>
+  <div id='login_form'>
+  <span id='close_window' title='Закрыть'></span>
+  <span id='autoris_text'></span>
+  <form action='/login/' method='post'>
+  {% csrf_token %}
+  {{login_form}}
+  <button id='buttn'>Войти</button>
+  <a href='/accounts/register/' id='reg'>Регистрация</a>
+  <a href='/accounts/password/reset/' id='reg'>Восстановить пароль</a>
+  </form>
+  </div> 

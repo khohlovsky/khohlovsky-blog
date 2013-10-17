@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load url from future %}
+ <html lang="en">
+ <head>
+ {% load static %}
+ <script type='text/javascript' language='javascript' src="{% static 'js/jquery-1.7.1.min.js'%}"></script>
+ <script type='text/javascript' language='javascript' src="{% static 'js/jquery.session.js'%}"></script>
+ <script type='text/javascript' language='javascript' src="{% static 'js/text-toggler.js'%}"></script>
+ <script type='text/javascript' language='javascript' src="{% static 'js/loginform.js'%}"></script>
+ <meta charset="utf-8">
+ <link rel="SHORTCUT ICON" href="{% static 'images/loginform.png'%}">
+ {% block head %} {% endblock %}
+ <title>{% block title %}{{title}}{% endblock %}
+ </title>
+ <link rel="stylesheet" href="{% static "css/base.css"%}">
+ <link rel="stylesheet" href="{% static "css/font.css"%}">
+ {% load static %}
+
+ </head>
+ <body>
+ <div id='moofok'>
+      <div id='header_wrapper'>
+	 <div id='nav_wrapper_1'>
+	    <div id='nav_wrapper_2'>
+	       <div id='nav'>
+		  <ul>
+		  <li><a href='#'>Обо мне</a></li>
+		  <li><a href='/contact/'>Контакты</a></li>
+		  {% if user.is_authenticated %}
+		  <li>
+		  <form action='/logout/' method='post'>
+		  {% csrf_token %} <button id='logout'>Выход</button></form>
+		  </li>
+		  {% else %}
+		  <li><a class = 'come_in' href='/accounts/login/'>Вход</a></li>
+		  {% endif %}
+		  </ul>
+	       </div>
+	    </div>
+	 </div>
+	 <div id='header'>
+	    <div id='header_fon'>
+	       <h1><a href='/'>Khohlovsky blog</a></h1>
+	       <p>A little blog about something</p>
+	    </div>
+	 </div>
+      </div>
+
+      <div id='line_wrapper'>
+	    <div id='login'>
+	       {%block line%}{% endblock %}
+	       {% if user.is_authenticated %}
+		  <span> Привет, {{user.username}} </span>
+	       {% else %}
+	       {% load blocks %}
+	       <div id='login_form_main' class='none'>
+		     {% auth_form %}
+	       </div>
+	       {% endif %}
+
+	    </div>
+	 <div class='clear'></div>
+      </div>
+	 <div id='toggle_wrapper'>
+	    <div id='toggle'>
+	       <div id='text_toggler'>
+		  <a id='less'><< less </a>|<a id='def'>normal</a>|<a id='bigger'> more >></a>
+	       </div>
+	    </div>
+	 </div>
+
+      <div class='clear'></div>
+
+	 <div id='wrapper'>
+
+	    <div class='cols'>
+	       <div id='center'>
+		  {% block content %}
+		  {%endblock%}
+	       </div>
+
+	       <div id='right_col'>
+		  {% block right %}
+		     <div class='block'>
+			<!--{% load blocks %}-->
+			{% all_cat%}
+			{% all_tags%}
+		     </div>
+		  {% endblock %}
+	       </div>
+
+		  <div class='clear'></div>
+	    </div>
+	 </div>
+   <!--	    <div class='clear'></div>-->
+
+   <!--</div>-->
+
+	 <div id='bottom_cols'>
+	    <div id='cols_wrapper'>
+		  <div id='lbottom'>
+		     {% block lbottom %}
+		     {% most_rated %}
+		     {% endblock %}
+		  </div>
+		  <div id='rbottom'>
+		     {% block rbottom %}
+		     {% last_comments %}
+		     {% endblock %}
+		  </div>
+		  <div class='clear'></div>
+	    </div>
+	 </div>
+
+
+
+   <div id='footer'>
+      <div id='bot_nav_wrapper'>
+	 <div id='bot_nav'>
+	    <ul>
+	    <li><a href='#'>Обо мне</a></li>
+	    <li><a href='/contact/'>Контакты</a></li>
+	    {% if user.is_authenticated %}
+	    <li>
+	    <form action='/logout/' method='post'>
+	    {% csrf_token %} <button id='logout'>Выход</button></form>
+	    </li>
+	    {% else %}
+	    <li><a class = 'come_in' href='/accounts/login/'>Вход</a></li>
+	    {% endif %}
+	    </ul>
+	 </div>
+	 <div id='copy'>&copy; made by <a href='mailto:khohlovsky@gmail.com'>Khohlovsky</a></div>
+      </div>
+   </div>
+</div>
+</body>
+</html>

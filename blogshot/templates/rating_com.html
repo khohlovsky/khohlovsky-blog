@@ -1,0 +1,5 @@
+ <div id='{{comment.id}}' class='rating_box' >
+ {% load static %}
+ <div id='rating_com'><img src='{% static "images/comment_but_plus.png"%}' class='com_plus' id='plus'><span class='num'>{{comment.rating}}</span>
+ <img src="{% static 'images/comment_but_min.png'%}" id='minus' class='com_minus' ></div>
+ </div> 

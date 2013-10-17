@@ -1,0 +1,19 @@
+/* наши шрифты */
+
+@font-face {
+   font-family:plaguedeath;
+   src: url('../fonts/plaguedeath/plaguedeath.ttf');
+}
+
+#header h1 {
+   font-family:plaguedeath;
+   font-size:5em;
+   color:#858F5F;
+   
+}
+#header p {
+   font-family:plaguedeath;
+   font-size:1.5em;
+   color:#fff;
+   font-style:italic;
+}

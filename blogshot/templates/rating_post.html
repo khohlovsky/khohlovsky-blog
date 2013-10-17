@@ -1,0 +1,15 @@
+{% load static %}
+<div id='rating'>  <img src='{% static "images/good.png"%}' id='plus'><span class='num'>{{ post.rating}}</span><img src="{% static 'images/bad.png'%}" id='minus'> </div>
+
+<script type='text/javascript'>
+$.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+   if(!options.crossDomain) {
+      if(options.data) {
+	 options.data += "&";
+	 } else {
+	    options.data = "";
+	    }
+	    options.data += "csrfmiddlewaretoken={{csrf_token}}";
+	    }
+	    });
+</script>

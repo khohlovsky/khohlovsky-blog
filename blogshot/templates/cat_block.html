@@ -1,0 +1,8 @@
+<div id='block_header'><h3>Категории:({{cats|length}})</h3></div>
+<div class='block_body'>
+<ul id='cat'>
+{% for cat in cats %}
+<li><a href='{{cat.get_url}}'>{{cat.title}} </a>({{cat.post_set.all|length}})</li>
+{% endfor %}
+</ul>
+</div> 

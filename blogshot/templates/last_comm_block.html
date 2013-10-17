@@ -1,0 +1,6 @@
+<div id='block_header'><h3>Последние комментарии:</h3></div>
+<ul>
+{%for comment in comments %}
+<li><a href='{{comment.get_url}}'>{{comment.get_title}}</a>: {{comment.comment|truncatewords_html:10}}</li>
+{% endfor %}
+</ul>

@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{post.title}}{% endblock %}
+{% block head %}
+<meta name="keywords" content="{{post.keywords}}">
+<meta name="description" content="{{post.description}}">
+<script type='text/javascript' language='javascript' src="{% static 'js/rating.js'%}"></script>
+{% endblock %}
+{% block line %}
+<div id ='line_message'>{{post.category}}</div>
+{% endblock %}
+
+{% block content %}
+<div id='{{post.slug}}'>
+   <div class='title'>
+      <h3>{{post.title}}</h3>
+   </div>
+   <div class='description'>
+      <p>{{post.post_text}}</p>
+      <div id='tags'>Тэги: {%for tag in tags%}<span><a href='{{tag.get_url}}'>{{tag.title}}</a></span>{%endfor%}</div>
+	 <div id='bottom_wrapper'>
+	    <div id='date'>{{post.pub_date}}</div>
+	   {% include 'rating_post.html' %}
+	    
+	 </div>
+   </div>
+</div>
+
+{% load comments %}
+
+<h3 class='title'>Комментарии:</h3>
+{% get_comment_list for post as list %}
+{% for comment in list %}
+
+<div id='comment_wrapper'>
+      <div id='comment_title'>
+	 <p>{{ comment.user_name }}</p>
+      </div>
+    <div class='colss'>
+     {% include 'rating_com.html' %}
+      <div id='comment_text'>
+	 <p>{{ comment.comment }}</p>
+      </div>
+     </div>
+   <div class='clear'></div>
+   <div id='comment_bottom'>  </div>
+</div>
+<!--</div>-->
+{% endfor %}
+{% if user.is_authenticated %}
+<div id='comment_form'>
+<form action={% comment_form_target %} method="post">
+{%csrf_token%}
+{% get_comment_form for post as form %}
+<span>Ваш комментарий:</span>{{form.comment}}
+<button>Фигануть</button>
+{% for hidden in form.hidden_fields %}
+{{ hidden }}
+{% endfor %}
+<input type="hidden" name="next" value="{{ post.get_url}}" />
+</form>
+</div>
+{% else %}
+<p class="alert"> Авторизуйтесь!<br>только зарегистрированные пользователи могут оставлять комментарии.</p>
+{% endif %}
+
+
+{% endblock %}
