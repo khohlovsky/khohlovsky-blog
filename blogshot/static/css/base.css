@@ -57,17 +57,17 @@ body a:hover{ color:#91AE45; text-decoration:none;cursor:pointer;}
 
 /* Контент */
 
-#wrapper{margin:5px auto;width:1000px;padding:10px;background:#EBEBEB url('../images/fon-wrapper.png');}
+#wrapper{margin:5px auto;width:80%;padding:10px;background:#EBEBEB url('../images/fon-wrapper.png');}
 
 #center,#right_col{ padding-bottom:10000px; margin-bottom:-10000px;}
 
-#center{ float:left; width:70%; background:#fff;}
+#center{ float:left; width:78%; background:#fff;}
 
 #center h1 {font-size:1.2em;}
 
 #center .description p{ font-size:1.0em;margin:15px 12px 0 12px; text-indent:50px;}
 
-#right_col{float:right; width:28%;font-size:0.8em;background:#27292B url('../images/fon-header.png');}
+#right_col{float:right; width:20%;font-size:0.8em;background:#27292B url('../images/fon-header.png');}
 
 #footer{background:#27292B url('../images/fon-header.png');color: #fff;padding:5px 0px 5px 0;width:100%;height:60px;border-top:#fff solid 2px;left:0;bottom:0;}
 
