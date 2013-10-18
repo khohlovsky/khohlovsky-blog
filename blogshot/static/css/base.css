@@ -125,7 +125,7 @@ border-top-right-radius: 8px;
 
 #block_header {background:url('../images/menu.png');}
 
-#block_header h3 { margin:0 0 0 40px; padding:10px 0 10px 0;color:#7B943B;font-family:Arial; /*font-style:italic;*/}
+#block_header h3 { margin:0 0 0 30px; padding:10px 0 10px 0;color:#7B943B;font-family:Arial; /*font-style:italic;*/}
 
 /* Линия после шапки */
 
