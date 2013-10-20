@@ -59,7 +59,7 @@ def lists(request,slug,url):
       title=posts.title
    else:
       result=Post.objects.order_by('-pub_date')
-      title='Главная'
+      title='Lazy man blog'
    paginator=Paginator(result,settings.PAGINATOR)
    page = request.GET.get('page')
    try:
