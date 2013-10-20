@@ -16,10 +16,7 @@ $(document).ready(function(){
 	    success:function(rating) {
 		    if (rating!='null'){
 		       $('#bottom_wrapper .num').text(rating);
-		  }
-		  else{
-		     alert('Вы уже голосовали!');
-		    };
+		  };
 		      
 		  }
 	    }); break;
@@ -33,16 +30,9 @@ $(document).ready(function(){
 		      if (rating!='null'){
 			 $('#bottom_wrapper .num').text(rating);
 		      }
-		      else{
-			 alert('Вы уже голосовали!');
-		      }
-			 
 		   }
 	    }); break;
 	    }
-
-	 
-
    }
 
 
@@ -65,9 +55,6 @@ $(document).ready(function(){
 		   success:function(rating) {
 		      if (rating!='null'){
 			 $('div[id='+id+'] .num').text(rating);
-		      }
-		      else{
-			 alert('Вы уже голосовали!');
 		      };
 		      
 		   }
@@ -82,10 +69,6 @@ $(document).ready(function(){
 		      if (rating!='null'){
 			 $('div[id='+id+'] .num').text(rating);
 		      }
-		      else{
-			 alert('Вы уже голосовали!');
-		      }
-		      
 		   }
 	    }); break;
       }
@@ -94,7 +77,3 @@ $(document).ready(function(){
       
    }
 	    });
-
-
-
-
