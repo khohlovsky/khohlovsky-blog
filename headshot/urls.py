@@ -13,9 +13,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^adminko/?', include(admin.site.urls)),
-    url(r"^comments/", include("comments.urls")),
-    #url(r'^register/', 'registration.views.register',{'backend': 'registration.backends.default.DefaultBackend'},name='registration_register'),
-    
-    url(r'^accounts/', include('registration.urls')),
+#   url(r"^comments/", include("comments.urls")),
     url(r'^',include('blogshot.urls')),
 )

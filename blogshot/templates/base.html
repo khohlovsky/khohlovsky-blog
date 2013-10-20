@@ -6,7 +6,7 @@
  <script type='text/javascript' language='javascript' src="{% static 'js/jquery-1.7.1.min.js'%}"></script>
  <script type='text/javascript' language='javascript' src="{% static 'js/jquery.session.js'%}"></script>
  <script type='text/javascript' language='javascript' src="{% static 'js/text-toggler.js'%}"></script>
- <script type='text/javascript' language='javascript' src="{% static 'js/loginform.js'%}"></script>
+ <script type='text/javascript' language='javascript' src="{% static 'js/test.js'%}"></script>
  <meta charset="utf-8">
  <link rel="SHORTCUT ICON" href="{% static 'images/loginform.png'%}">
  {% block head %} {% endblock %}
@@ -26,6 +26,7 @@
 		  <ul>
 		  <li><a href='#'>Обо мне</a></li>
 		  <li><a href='/contact/'>Контакты</a></li>
+		  <li><a href='/links/'>Интересные странички</a></li>
 		  </ul>
 	       </div>
 	    </div>
@@ -96,23 +97,13 @@
 	    </div>
 	 </div>
 
-
-
    <div id='footer'>
       <div id='bot_nav_wrapper'>
 	 <div id='bot_nav'>
 	    <ul>
 	    <li><a href='#'>Обо мне</a></li>
 	    <li><a href='/contact/'>Контакты</a></li>
-	    {% if user.is_authenticated %}
-	    <li>
-	    <form action='/logout/' method='post'>
-	    {% csrf_token %} <button id='logout'>Выход</button></form>
-	    </li>
-	    {% else %}
-	    <li><a class = 'come_in' href='/accounts/login/'>Вход</a></li>
-	    {% endif %}
-	    </ul>
+	   	</ul>
 	 </div>
 	 <div id='copy'>&copy; made by <a href='mailto:khohlovsky@gmail.com'>Khohlovsky</a></div>
       </div>

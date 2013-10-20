@@ -10,8 +10,6 @@ path= lambda *x:os.path.join(myadds,*x).replace('\\','/')
    #TEMPLATE_DEBUG = DEBUG=False
 TEMPLATE_DEBUG = DEBUG=True
 
-ACCOUNT_ACTIVATION_DAYS = 3
-
 COMMENT_MAX_LENGTH=500
 
 PAGINATOR=7
@@ -142,8 +140,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'flatpages',
-    'comments',
+    'django.contrib.flatpages',
+    'lightcomments',
     'blogshot',
 )
 

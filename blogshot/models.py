@@ -75,19 +75,3 @@ class IptablePost(models.Model):
 class IptableComment(models.Model):
    client_ip=models.CharField(verbose_name=u'Ip клиента',max_length=20)
    item=models.ForeignKey(Comment)
-
-def get_url(self):
-   post=Post.objects.get(id=self.object_pk)
-   url=post.get_url()
-   return url
-
-def get_title(self):
-   post=Post.objects.get(id=self.object_pk)
-   title=post.title
-   return title
-
-#манки патчинг#
-Comment.add_to_class('rating', models.IntegerField(verbose_name=u'Рейтинг',default=0))
-Comment.add_to_class('comment',forms.CharField(label=u'Комментарий', widget=forms.Textarea(attrs={'rows':9, 'cols':60,'wrap':'soft'})))
-Comment.add_to_class('get_url',get_url)
-Comment.add_to_class('get_title',get_title)
