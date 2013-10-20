@@ -3,7 +3,7 @@
 from django.db import models
 from autoslug import AutoSlugField
 from pytils.translit import slugify
-from comments.models import Comment
+from lightcomments.models import Comment
 import datetime
 from django import forms
 
