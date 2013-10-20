@@ -26,38 +26,21 @@
    </div>
 </div>
 
-{% load comments %}
-
 <h3 class='title'>Комментарии:</h3>
-{% get_comment_list for post as list %}
-{% for comment in list %}
 
 <div id='comment_wrapper'>
       <div id='comment_title'>
-	 <p>{{ comment.user_name }}</p>
       </div>
     <div class='colss'>
      {% include 'rating_com.html' %}
       <div id='comment_text'>
-	 <p>{{ comment.comment }}</p>
       </div>
      </div>
    <div class='clear'></div>
    <div id='comment_bottom'>  </div>
 </div>
 <!--</div>-->
-{% endfor %}
 <div id='comment_form'>
-<form action={% comment_form_target %} method="post">
-{%csrf_token%}
-{% get_comment_form for post as form %}
-<span>Ваш комментарий:</span>{{form.comment}}
-<button>Фигануть</button>
-{% for hidden in form.hidden_fields %}
-{{ hidden }}
-{% endfor %}
-<input type="hidden" name="next" value="{{ post.get_url}}" />
-</form>
 </div>
 
 {% endblock %}

@@ -16,7 +16,9 @@
 {% endfor %}
 <div id="pagination">
 {% for num in posts.paginator.page_range %}
+{% if num > '1' %}
 <a href="?page={{num}}">{{num}}</a>
+{%endif%}
 {% endfor %}
 </div>
 <div id='clear'></div>

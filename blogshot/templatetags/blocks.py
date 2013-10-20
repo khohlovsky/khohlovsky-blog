@@ -1,7 +1,7 @@
 from blogshot.models import Tag, Category, Post
 from blogshot.forms import LoginForm
 from django import template
-from comments.models import Comment
+from lightcomments.models import Comment
 
 register = template.Library()
 
@@ -31,6 +31,6 @@ def last_comments():
 register.inclusion_tag('tags_block.html')(all_tags)
 register.inclusion_tag('cat_block.html')(all_cat)
 register.inclusion_tag('most_rated_block.html')(most_rated)
-register.inclusion_tag('login_form.html')(auth_form)
+#register.inclusion_tag('login_form.html')(auth_form)
 register.inclusion_tag('last_comm_block.html')(last_comments)
 

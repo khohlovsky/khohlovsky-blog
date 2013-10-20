@@ -222,7 +222,7 @@ button { background:#000;color:#7B943B;border-radius: 5px;padding:2px;border: 1p
 
 #bottom_cols{width:100%;background:#27292B url('../images/fon-header.png');margin-top:20px;padding-top:5px;}
 
-#cols_wrapper{ margin:5px auto ;width:1000px;padding:5px;clear:both;background:url('../images/bottom_fon.png') no-repeat center top;}
+#cols_wrapper{ margin:5px auto ;width:80%;padding:5px;clear:both;background:url('../images/bottom_fon.png') no-repeat center top;}
 
 /* Нижняя менюшечка */
 
