@@ -82,7 +82,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-path('/blogshot/static'),
+path('blogshot/static'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -123,7 +123,7 @@ ROOT_URLCONF = 'headshot.urls'
 WSGI_APPLICATION = 'headshot.wsgi.application'
 
 TEMPLATE_DIRS = (
-path('/blogshot/templates'),
+path('blogshot/templates'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -143,6 +143,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'lightcomments',
     'blogshot',
+    'tinymce', 
 )
 
 #TEMPLATE_CONTEXT_PROCESSORS = (
@@ -177,3 +178,13 @@ LOGGING = {
         },
     }
 }
+#TINYMCE_JS_URL = os.path.join(MEDIA_ROOT, "path/to/tiny_mce/tiny_mce.js")
+#TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
+TINYMCE_DEFAULT_CONFIG = {
+        'plugins': "table,visualblocks,spellchecker,paste,searchreplace,fullscreen,fullpage,pagebreak,autosave,bbcode,",
+            'theme': "advanced",
+                'cleanup_on_startup': True,
+                'custom_undo_redo_levels': 10,
+}
+TINYMCE_SPELLCHECKER = True
+#TINYMCE_COMPRESSOR = True

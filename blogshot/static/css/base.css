@@ -4,7 +4,7 @@ body {
    margin:0 auto;
    padding:0px;
    background:#fff;
-   font-size:100%;
+   font-size:0.9em;
    width:100%;
    color: #000000;
    font-family: Verdana, Arial,Helvetica,sans-serif;
@@ -61,7 +61,7 @@ body a:hover{ color:#91AE45; text-decoration:none;cursor:pointer;}
 
 #center,#right_col{ padding-bottom:10000px; margin-bottom:-10000px;}
 
-#center{ float:left; width:78%; background:#fff;}
+#center{ float:left; width:78%; background:#fff; }
 
 #center h1 {font-size:1.2em;}
 
@@ -101,7 +101,7 @@ border-top-right-radius: 8px;
 
 .title h2 a:hover{ color:#91AE45; opacity:0.8;}
 
-.description{ padding:10px 5px 5px 5px;}
+.description{ padding:10px 5px 5px 5px; overflow:hiden;}
 
 .alert { font-size:0.8em; color:#000; opacity:0.6;}
 

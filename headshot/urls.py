@@ -15,4 +15,5 @@ urlpatterns = patterns('',
     url(r'^adminko/?', include(admin.site.urls)),
 #   url(r"^comments/", include("comments.urls")),
     url(r'^',include('blogshot.urls')),
+    url(r'^tinymce/', include('tinymce.urls')),
 )
