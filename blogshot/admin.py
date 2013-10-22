@@ -25,7 +25,7 @@ class PostAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
   list_display=('post',)
   #prepopulated_fields = {"slug": ("title",)}
-  fields=('nick','message','post')
+  fields=('nick','message','post','rating',)
 
   
 admin.site.register(Tag,TagAdmin)

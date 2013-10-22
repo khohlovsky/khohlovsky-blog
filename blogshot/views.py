@@ -2,7 +2,7 @@
 
 from datetime import datetime
 from models import Post, Category, Tag, IptablePost,IptableComment
-from django.contrib import comments
+from lightcomments.models import Comment
 from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
@@ -17,9 +17,10 @@ def post (request,slug):
    try:
       query=Post.objects.get(slug=slug)
       tags=query.tags.all()
+      comments=Comment.objects.filter(post=query.id)
    except Post.DoesNotExist:
       raise Http404()
-   return render_to_response('post.html',{'post':query,'tags':tags},context_instance=RequestContext(request))
+   return render_to_response('post.html',{'post':query,'tags':tags,'comments':comments,},context_instance=RequestContext(request))
 
 def auth_view(request):
    form=LoginForm(request.POST or None)
