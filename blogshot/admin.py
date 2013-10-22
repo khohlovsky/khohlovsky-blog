@@ -2,6 +2,7 @@ from django.contrib import admin
 from blogshot.models import *
 from lightcomments.models import *
 from tinymce.widgets import TinyMCE
+from mce_filebrowser.admin import MCEFilebrowserAdmin
 
 class TagAdmin(admin.ModelAdmin):
   list_display=('title',)
@@ -13,7 +14,7 @@ class CategoryAdmin(admin.ModelAdmin):
   #prepopulated_fields = {"slug": ("title",)}
   fields=('title','description','image')
   
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(MCEFilebrowserAdmin):
   list_display=('title','pub_date','rating')
   list_filter=('pub_date',)
   date_hierarchy='pub_date'

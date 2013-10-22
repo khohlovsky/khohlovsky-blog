@@ -1,7 +1,7 @@
 # Django settings for headshot project.
 import os
 import socket
-myadds=os.path.abspath(os.path.dirname(__file__))
+myadds=os.path.abspath(os.path.join(os.path.dirname(__file__),"../"))
 path= lambda *x:os.path.join(myadds,*x).replace('\\','/')
 
 #if socket.gethostname()=='kostello':
@@ -144,6 +144,8 @@ INSTALLED_APPS = (
     'lightcomments',
     'blogshot',
     'tinymce', 
+    'sorl.thumbnail',
+    'mce_filebrowser',
 )
 
 #TEMPLATE_CONTEXT_PROCESSORS = (
@@ -178,13 +180,16 @@ LOGGING = {
         },
     }
 }
-#TINYMCE_JS_URL = os.path.join(MEDIA_ROOT, "path/to/tiny_mce/tiny_mce.js")
+#TINYMCE_JS_URL = "/static/js/tinymce.min.js"
 #TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
 TINYMCE_DEFAULT_CONFIG = {
-        'plugins': "table,visualblocks,spellchecker,paste,searchreplace,fullscreen,fullpage,pagebreak,autosave,bbcode,",
-            'theme': "advanced",
-                'cleanup_on_startup': True,
-                'custom_undo_redo_levels': 10,
+    'file_browser_callback': 'mce_filebrowser',
+    'plugins':'preview,table,visualblocks,spellchecker,paste,searchreplace,fullscreen,fullpage,pagebreak,autosave,bbcode',
+    'theme': 'advanced',
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 10,
+    'file_browser_callback': 'mce_filebrowser',
+    'theme_advanced_buttons3_add' : 'search,replace,preview,fullpage,fullscreen',
 }
 TINYMCE_SPELLCHECKER = True
 #TINYMCE_COMPRESSOR = True
