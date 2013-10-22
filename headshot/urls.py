@@ -14,7 +14,5 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^adminko/?', include(admin.site.urls)),
 #   url(r"^comments/", include("comments.urls")),
-    url(r'^',include('blogshot.urls')),
-    url(r'^tinymce/', include('tinymce.urls')),
-    (r'^mce_filebrowser/', include('mce_filebrowser.urls')),
+    url(r'^',include('blogshot.urls')), 
 )

@@ -21,9 +21,9 @@ body a:hover{ color:#91AE45; text-decoration:none;cursor:pointer;}
 
 /*округление для понта*/
 #wrapper, #lbottom, #rbottom, #bottom_wrapper, #center, #right_col,.title,.login_form_js,#comment_title{
-   border-radius:8px;
-   -moz-border-radius-top:8px;
-   -webkit-border-top-radius:8px;
+   border-radius:5px;
+   -moz-border-radius-top:5px;
+   -webkit-border-top-radius:5px;
 }
 
 /* тени для понта */
@@ -109,7 +109,7 @@ border-top-right-radius: 8px;
 
 .block {margin: 0px; padding:0px;/* url('../images/fon-wrapper.png');*/}
 
-.block_body {background:#EBEBEB url('../images/fon-wrapper.png'); border-radius:8px; margin:8px;}
+.block_body {background:#EBEBEB url('../images/fon-wrapper.png'); border-radius:5px; margin:8px;}
 
 .block_body ul {padding:10px;}
 
@@ -146,11 +146,11 @@ border-top-right-radius: 8px;
 
 #comment_wrapper h2{padding:10px; text-decoration:underline;}
 
-#comment_title { background:#7B943B; padding-left:15px;}
+#comment_title { background:#7B943B; padding-left:15px;display:block;}
 
 #comment_title p {font-size:1em; font-weight:bold;}
 
-#comment_text {  background:#fff; padding:5px 10px 5px 10px;float:right;width:80%;display:inline; word-wrap:break-word;}
+#comment_text {  background:#fff; padding:5px 10px 5px 10px;float:right;width:80%;display:inline;margin-top:20px; word-wrap:break-word;}
 
 #comment_text p {font-size:1em;}
 
@@ -167,7 +167,7 @@ border-top-right-radius: 8px;
 
 .rating_box{/*border:1px #7B943B solid */;float:left;width:12%;margin-bottom:2px;}
 
-#rating_com{}
+#rating_com{margin-top:8px;}
 
 .com_plus {display:block;/*background:url('../images/comment_but_plus.png') no-repeat;*/}
 
