@@ -15,8 +15,9 @@
    <div class='title'>
       <h3>{{post.title}}</h3>
    </div>
+   {% load markitup_tags %}
    <div class='description'>
-      <p>{{post.post_text}}</p>
+      <p>{{post.post_text|render_markup}}</p>
       <div id='tags'>Тэги: {%for tag in tags%}<span><a href='{{tag.get_url}}'>{{tag.title}}</a></span>{%endfor%}</div>
 	 <div id='bottom_wrapper'>
 	    <div id='date'>{{post.pub_date}}</div>

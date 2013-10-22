@@ -74,7 +74,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = 'path("static")'
+STATIC_ROOT = path('static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -143,10 +143,8 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'lightcomments',
     'blogshot',
-    'tinymce', 
-    'sorl.thumbnail',
-    'mce_filebrowser',
-)
+    'markitup',
+    )
 
 #TEMPLATE_CONTEXT_PROCESSORS = (
 #   'django.contrib.auth.context_processors.auth',
@@ -180,16 +178,7 @@ LOGGING = {
         },
     }
 }
-#TINYMCE_JS_URL = "/static/js/tinymce.min.js"
-#TINYMCE_JS_URL = 'http://debug.example.org/tiny_mce/tiny_mce_src.js'
-TINYMCE_DEFAULT_CONFIG = {
-    'file_browser_callback': 'mce_filebrowser',
-    'plugins':'preview,table,visualblocks,spellchecker,paste,searchreplace,fullscreen,fullpage,pagebreak,autosave,bbcode',
-    'theme': 'advanced',
-    'cleanup_on_startup': True,
-    'custom_undo_redo_levels': 10,
-    'file_browser_callback': 'mce_filebrowser',
-    'theme_advanced_buttons3_add' : 'search,replace,preview,fullpage,fullscreen',
-}
-TINYMCE_SPELLCHECKER = True
-#TINYMCE_COMPRESSOR = True
+MARKITUP_FILTER = ('django.contrib.markup.templatetags.markup.textile', {})
+MARKITUP_AUTO_PREVIEW=True
+MARKITUP_SET = 'markitup/sets/textile'
+MARKITUP_SKIN = 'markitup/skins/markitup'

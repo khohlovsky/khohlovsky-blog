@@ -283,3 +283,4 @@ textarea {resize: none;white-space:normal;}
 #tags a:after{content:', '}
 
 #err p{font-size:1.5em;color:red;}
+code {color:red;}
