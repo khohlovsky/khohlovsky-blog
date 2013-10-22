@@ -101,7 +101,7 @@ border-top-right-radius: 8px;
 
 .title h2 a:hover{ color:#91AE45; opacity:0.8;}
 
-.description{ padding:10px 5px 5px 5px; overflow:hiden;}
+.description{ padding:10px 5px 5px 5px; word-wrap: break-word;}
 
 .alert { font-size:0.8em; color:#000; opacity:0.6;}
 

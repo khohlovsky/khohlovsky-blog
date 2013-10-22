@@ -1,5 +1,6 @@
 from django.contrib import admin
 from blogshot.models import *
+from lightcomments.models import *
 from tinymce.widgets import TinyMCE
 
 class TagAdmin(admin.ModelAdmin):
@@ -20,7 +21,14 @@ class PostAdmin(admin.ModelAdmin):
   filter_horizontal=('tags',)
   #prepopulated_fields = {"slug": ("title",)}
   formfield_overrides = {models.TextField: {'widget':TinyMCE(attrs={'cols': 80, 'rows': 30})}}
+
+class CommentAdmin(admin.ModelAdmin):
+  list_display=('post',)
+  #prepopulated_fields = {"slug": ("title",)}
+  fields=('nick','message','post')
+
   
 admin.site.register(Tag,TagAdmin)
 admin.site.register(Post,PostAdmin)
 admin.site.register(Category,CategoryAdmin)
+admin.site.register(Comment,CommentAdmin)

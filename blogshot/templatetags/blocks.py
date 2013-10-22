@@ -24,7 +24,7 @@ def most_rated():
 
 def last_comments():
    comm=Comment.objects.all()
-   last=comm.order_by('-submit_date')
+   last=comm.order_by('-pub_date')
    return {'comments':last[:10],}
 
 
