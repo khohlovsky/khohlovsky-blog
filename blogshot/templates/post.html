@@ -15,9 +15,9 @@
    <div class='title'>
       <h3>{{post.title}}</h3>
    </div>
-   {% load markitup_tags %}
+   {% load markup %}
    <div class='description'>
-      <p>{{post.post_text|render_markup}}</p>
+      <p>{{post.post_text|markdown:'codehilite'}}</p>
       <div id='tags'>Тэги: {%for tag in tags%}<span><a href='{{tag.get_url}}'>{{tag.title}}</a></span>{%endfor%}</div>
 	 <div id='bottom_wrapper'>
 	    <div id='date'>{{post.pub_date}}</div>

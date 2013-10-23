@@ -141,6 +141,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'django.contrib.flatpages',
+    'django.contrib.markup',
     'lightcomments',
     'blogshot',
     'markitup',
@@ -178,7 +179,7 @@ LOGGING = {
         },
     }
 }
-MARKITUP_FILTER = ('django.contrib.markup.templatetags.markup.textile', {})
+MARKITUP_FILTER = ('django.contrib.markup.templatetags.markup.markdown', {})
 MARKITUP_AUTO_PREVIEW=True
-MARKITUP_SET = 'markitup/sets/textile'
+MARKITUP_SET = 'markitup/sets/markdown'
 MARKITUP_SKIN = 'markitup/skins/markitup'

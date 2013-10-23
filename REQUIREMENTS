@@ -1,7 +1,10 @@
 Django==1.4
+Markdown==2.3.1
 PIL==1.1.7
+Pygments==1.6
 django-autoslug==1.7.1
-django-tinymce==1.5.1
+django-markitup==1.1.0
+ez-setup==0.9
 psycopg2==2.5.1
 pytils==0.2.3
 wsgiref==0.1.2

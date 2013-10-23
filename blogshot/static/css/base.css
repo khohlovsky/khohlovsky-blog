@@ -162,9 +162,9 @@ border-top-right-radius: 8px;
 
 #comment_form textarea {margin-top:8px; width:100%;}
 
-#comment_form input {width:30%;padding:2px; color:#91AE45;}
+#comment_form input {width:30%;padding:2px;}
 
-#comment_form input:focus{ background:#fff;color:#000}
+#comment_form input:focus{ background:#fff;}
 
 #comment_form textarea:hover, input:hover {border: 1px solid #7B943B; box-shadow:0px 0px 10px #7B943B; }
 
@@ -287,4 +287,6 @@ button { background:#000;color:#7B943B;border-radius: 5px;padding:2px;border: 1p
 #tags a:after{content:', '}
 
 #err p{font-size:1.5em;color:red;}
-code {color:red;}
+/*подсветка синтаксиса*/
+.codehilite {background:#464646;padding:5px;}
+.codehilite pre {margin-right:100%;}
