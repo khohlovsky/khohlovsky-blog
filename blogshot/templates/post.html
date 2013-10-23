@@ -46,7 +46,8 @@
 <!--</div>-->
 {% endfor %}
 <div id='comment_form'>
-<form action="comment/" method="post">
+<form action="/comment/" method="POST">
+{%csrf_token%} 
 {{ CommentForm.nick }}
 {{ CommentForm.message }}
 {{ CommentForm.kapcha }}

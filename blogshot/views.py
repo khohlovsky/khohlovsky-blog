@@ -12,6 +12,7 @@ from django.template import RequestContext
 from forms import LoginForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from headshot import settings
+from django.http import HttpResponse
 
 
 def post (request,slug):
@@ -95,3 +96,12 @@ def save(request,model):
 	    thismod.save()
 	 rating=str(thismod.rating)
       return HttpResponse(rating)
+
+
+def comment_save(request):
+    if request.method == 'POST':
+        nick=request.META.get('nick')
+        message=request.META.get('message')
+        Comment.nick=nick
+        Comment.message=message
+        Comment.save()
