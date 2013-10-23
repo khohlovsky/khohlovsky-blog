@@ -288,5 +288,5 @@ button { background:#000;color:#7B943B;border-radius: 5px;padding:2px;border: 1p
 
 #err p{font-size:1.5em;color:red;}
 /*подсветка синтаксиса*/
-.codehilite {background:#464646;padding:5px;}
+.codehilite {background:#282828;padding:5px;overflow:auto;}
 .codehilite pre {margin-right:100%;}
