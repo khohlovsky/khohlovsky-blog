@@ -79,7 +79,7 @@ def save(request,model):
       this_id=request.POST.get('slug',) or request.POST.get('id',)
       funct=request.POST.get('funct',)
       if model.__name__=='IptableComment':
-	 thismod=comments.Comment.objects.get(id=this_id)
+	 thismod=Comment.objects.get(id=this_id)
       if model.__name__=='IptablePost':
 	 thismod=Post.objects.get(slug=this_id)
       i=model.objects.filter(client_ip=ip,item=thismod)

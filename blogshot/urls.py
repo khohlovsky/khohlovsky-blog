@@ -1,7 +1,6 @@
 from django.conf.urls import include, patterns, url
 from blogshot import views
 from models import Post, IptablePost,IptableComment
-import django.contrib.comments
 
 urlpatterns=patterns('',
 url(r'^save/post_rating$',views.save,{'model':IptablePost}),
