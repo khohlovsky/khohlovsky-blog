@@ -102,6 +102,7 @@ def comment_save(request):
     if request.method == 'POST':
         nick=request.META.get('nick')
         message=request.META.get('message')
-        Comment.nick=nick
-        Comment.message=message
-        Comment.save()
+        post=request.META.get('id')
+        comment=Comment(nick=nick,message=message,post=post)
+        comment.save()
+    return HttpResponse(200)

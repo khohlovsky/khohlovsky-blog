@@ -11,5 +11,5 @@ url(r'^/?(category/(?P<slug>[0-9A-Za-z-]+))/$',views.lists,{'url':'category'}),
 url(r'^/?(tag/(?P<slug>[0-9A-Za-z-]+))/?$',views.lists,{'url':'tag'}),
 url(r'^/?$',views.lists,{'url':'main','slug':None}),
 url(r'(?P<slug>[0-9A-Za-z-]+)/?$',views.post),
-url(r'^comment/',views.comment_save),
+url(r'^save/comment/$',views.comment_save),
 )
