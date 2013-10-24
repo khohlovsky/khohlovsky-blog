@@ -57,7 +57,7 @@ body a:hover{ color:#91AE45; text-decoration:none;cursor:pointer;}
 
 /* Контент */
 
-#wrapper{margin:5px auto;width:80%;padding:10px;background:#EBEBEB url('../images/fon-wrapper.png');}
+#wrapper{margin:5px auto;width:80%;padding:10px;/*background:#EBEBEB url('../images/fon-wrapper.png');*/background:#27292B url('../images/fon-header.png');}
 
 #center,#right_col{ padding-bottom:10000px; margin-bottom:-10000px;}
 
@@ -67,7 +67,7 @@ body a:hover{ color:#91AE45; text-decoration:none;cursor:pointer;}
 
 #center .description p{ font-size:1.0em;margin:15px 12px 0 12px; text-indent:50px;}
 
-#right_col{float:right; width:20%;font-size:0.8em;background:#27292B url('../images/fon-header.png');}
+#right_col{float:right; width:20%;font-size:0.8em;/*background:#27292B url('../images/fon-header.png');background:#EBEBEB url('../images/fon-wrapper.png');*/}
 
 #footer{background:#27292B url('../images/fon-header.png');color: #fff;padding:5px 0px 5px 0;width:100%;height:60px;border-top:#fff solid 2px;left:0;bottom:0;}
 
@@ -95,11 +95,13 @@ border-top-left-radius: 8px;
 border-top-right-radius: 8px;
 }
 
-.title { padding:4px; background:#27292B url('../images/fon-header.png'); color:#7B943B;}
+.title { padding:2px 2px 2px 20px; background:#27292B url('../images/fon-header.png'); color:#7B943B; margin:4px;}
 
 .title h2 a { color:#7B943B; }
 
 .title h2 a:hover{ color:#91AE45; opacity:0.8;}
+
+.title h3 {margin:6px;}
 
 .description{ padding:10px 5px 5px 5px; word-wrap: break-word;}
 
@@ -107,7 +109,7 @@ border-top-right-radius: 8px;
 
 /* блоки справа */
 
-.block {margin: 0px; padding:0px;/* url('../images/fon-wrapper.png');*/}
+.block {margin: 0px; padding:0px;/* url('../images/fon-wrapper.png');*/background:#27292B url('../images/fon-header.png');}
 
 .block_body {background:#EBEBEB url('../images/fon-wrapper.png'); border-radius:5px; margin:8px;}
 
