@@ -145,6 +145,7 @@ INSTALLED_APPS = (
     'lightcomments',
     'blogshot',
     'markitup',
+    'gunicorn',
     )
 
 #TEMPLATE_CONTEXT_PROCESSORS = (
