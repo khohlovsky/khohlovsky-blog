@@ -24,27 +24,6 @@ def post (request,slug):
       raise Http404()
    return render_to_response('post.html',{'post':query,'tags':tags,'comments':comments,'CommentForm':CommentForm,},context_instance=RequestContext(request))
 
-def auth_view(request):
-   form=LoginForm(request.POST or None)
-   referer = request.META.get('HTTP_REFERER', '') or "/"
-   if request.method=="POST" and form.is_valid():
-      data=form.cleaned_data
-      user=data['login']
-      passwd=data['password']
-      user=auth.authenticate(username=user, password=passwd)
-      if user is not None and user.is_active:
-	 auth.login(request,user)
-	 return HttpResponseRedirect(referer)
-      else:
-	 return HttpResponseRedirect(referer)
-   else:
-      return HttpResponseRedirect(referer)
-
-def logout_view(request):
-   auth.logout(request)
-   referer = request.META.get('HTTP_REFERER', '') or "/"
-   return HttpResponseRedirect(referer)
-   
 def lists(request,slug,url):
    if url == 'category':
       try:
@@ -103,7 +82,10 @@ def comment_save(request):
         nick=request.POST.get('nick')
         message=request.POST.get('message')
         slug=request.POST.get('slug')
-        post=Post.objects.get(slug=slug)
-        comment=Comment(nick=nick,message=message,post_id=post.id)
-        comment.save()
+        try:
+            post=Post.objects.get(slug=slug)
+            comment=Comment(nick=nick,message=message,post_id=post.id)
+            comment.save()
+        except error:
+            HttpREsponse("false")
         return HttpResponse(200)
