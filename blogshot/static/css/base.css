@@ -137,8 +137,6 @@ border-top-right-radius: 8px;
 
 #login span {float:right;/*clear:both;*/}
 
-#login form { float:right;}
-
 #line_message{float:left;margin:auto 100px;color:#000;font-size:1em;}
 /*Комментарии*/
 

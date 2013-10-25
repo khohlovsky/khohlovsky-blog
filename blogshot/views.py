@@ -99,10 +99,11 @@ def save(request,model):
 
 
 def comment_save(request):
-    if request.method == 'POST':
-        nick=request.META.get('nick')
-        message=request.META.get('message')
-        post=request.META.get('id')
-        comment=Comment(nick=nick,message=message,post=post)
+    if request.is_ajax():
+        nick=request.POST.get('nick')
+        message=request.POST.get('message')
+        slug=request.POST.get('slug')
+        post=Post.objects.get(slug=slug)
+        comment=Comment(nick=nick,message=message,post_id=post.id)
         comment.save()
-    return HttpResponse(200)
+        return HttpResponse(200)

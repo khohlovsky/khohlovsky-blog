@@ -48,14 +48,10 @@
 <!--</div>-->
 {% endfor %}
 <div id='comment_form'>
-<form  method="POST">
 {%csrf_token%} 
 {{ CommentForm.nick }}
 {{ CommentForm.message }}
-{{ CommentForm.kapcha }}
 <button>Фигануть</button>
-</form>
 </div>
-
 
 {% endblock %}

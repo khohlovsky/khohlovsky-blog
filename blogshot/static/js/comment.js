@@ -3,23 +3,23 @@
        
        var nick=$('input#id_nick').val();
        var message=$('textarea#id_message').val();
-       var id=$("#slug").attr('class');
-       alert(id);
+       var slug=$("#slug").attr('class');
+       alert(slug);
        alert(nick);
        alert(message);
 
-       saveComment(id,message,nick);
+       saveComment(slug,message,nick);
    });
    
-    function saveComment(id,message,nick){
+    function saveComment(slug,message,nick){
 	    $.ajax({
-	    url:"/save/comment",
+	    url:"/save/comment/",
 	    type:"post",
-	    data:{id:id,message:message,nick:nick},
-	    error:function(){alert('опаньки, ошибочка...');},
-		done:function(html) {
-		      $("#comment_wrapper").html(html);
-		   }
+	    data:{slug:slug,message:message,nick:nick},
+	    error:function(){alert('!!!');},
+		done:function() {
+		      alert(slug);
+		   },
 	    });
 	      }
           });
