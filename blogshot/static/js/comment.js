@@ -4,10 +4,9 @@
        var nick=$('input#id_nick').val();
        var message=$('textarea#id_message').val();
        var slug=$("#slug").attr('class');
-       alert(slug);
-       alert(nick);
-       alert(message);
-
+       if (nick.length<6){
+           $('input#id_nick').val('!');
+           }
        saveComment(slug,message,nick);
    });
    
@@ -16,10 +15,10 @@
 	    url:"/save/comment/",
 	    type:"post",
 	    data:{slug:slug,message:message,nick:nick},
-	    error:function(){alert('!!!');},
-		done:function() {
-		      alert(slug);
-		   },
+		success:function(da) {
+            $('#comment_list').empty();
+            $('#comment_list').append(da);
+            clik_consumer($("#comment_wrapper  #rating_com  img"));}
 	    });
 	      }
           });

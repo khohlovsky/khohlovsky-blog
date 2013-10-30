@@ -15,15 +15,16 @@ from headshot import settings
 from django.http import HttpResponse
 
 
+
 def post (request,slug):
    try:
       query=Post.objects.get(slug=slug)
-      tags=query.tags.all()
       comments=Comment.objects.filter(post=query.id)
    except Post.DoesNotExist:
       raise Http404()
+   tags=query.tags.all()
    return render_to_response('post.html',{'post':query,'tags':tags,'comments':comments,'CommentForm':CommentForm,},context_instance=RequestContext(request))
-
+   
 def lists(request,slug,url):
    if url == 'category':
       try:
@@ -88,4 +89,15 @@ def comment_save(request):
             comment.save()
         except error:
             HttpREsponse("false")
-        return HttpResponse(200)
+        query=Post.objects.get(slug=slug)
+        comments=Comment.objects.filter(post=query.id)
+        return render_to_response('comment.html',{'comments':comments,},context_instance=RequestContext(request))
+
+
+
+def get_comment(request):
+    if request.is_ajax():
+        slug=request.POST.get('slug')
+        query=Post.objects.get(slug=slug)
+        comments=Comment.objects.filter(post=query.id)
+        return render_to_response('comment.html',{'comments':comments,},context_instance=RequestContext(request))

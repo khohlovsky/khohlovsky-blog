@@ -1,3 +1,41 @@
+function EditRatingCom(funct,id){
+      switch(funct){
+	 case 'plus':
+	    $.ajax({
+	       url:"/save/comment_rating",
+	    type:"post",
+	    data:{id:id,funct:'plus',},
+	    error:function(){alert('опаньки, ошибочка...');},
+		   success:function(rating) {
+		      if (rating!='null'){
+			 $('div[id='+id+'] .num').text(rating);
+		      };
+		      
+		   }
+	    }); break;
+	 case 'minus':
+	    $.ajax({
+	       url:"/save/comment_rating",
+	    type:"post",
+	    data:{id:id,funct:'minus'},
+	    error:function(){alert('опаньки, ошибочка...');},
+		   success:function(rating) {
+		      if (rating!='null'){
+			 $('div[id='+id+'] .num').text(rating);
+		      }
+		   }
+	    }); break;
+      }}
+
+function clik_consumer(selector){
+    selector.click(function(){
+            var clickId=this.id;
+            var id=$(this).parent().parent().attr('id');
+            var th=$(this);
+        EditRatingCom(clickId,id,th);
+   });
+ }
+
 $(document).ready(function(){
     $("#bottom_wrapper > #rating img").click(function(){
       var clickId=this.id;
@@ -34,46 +72,5 @@ $(document).ready(function(){
 	    }); break;
 	    }
    }
-
-
-
-   $("#comment_wrapper  #rating_com  img").click(function(){
-       var clickId=this.id;
-       var id=$(this).parent().parent().attr('id');
-       var th=$(this);
-       EditRatingCom(clickId,id,th);
-   });
-   
-   function EditRatingCom(funct,id){
-      switch(funct){
-	 case 'plus':
-	    $.ajax({
-	       url:"/save/comment_rating",
-	    type:"post",
-	    data:{id:id,funct:'plus',},
-	    error:function(){alert('опаньки, ошибочка...');},
-		   success:function(rating) {
-		      if (rating!='null'){
-			 $('div[id='+id+'] .num').text(rating);
-		      };
-		      
-		   }
-	    }); break;
-	 case 'minus':
-	    $.ajax({
-	       url:"/save/comment_rating",
-	    type:"post",
-	    data:{id:id,funct:'minus'},
-	    error:function(){alert('опаньки, ошибочка...');},
-		   success:function(rating) {
-		      if (rating!='null'){
-			 $('div[id='+id+'] .num').text(rating);
-		      }
-		   }
-	    }); break;
-      }
-      
-      
-      
-   }
-	    });
+    clik_consumer($("#comment_wrapper  #rating_com  img"));
+});

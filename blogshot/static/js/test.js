@@ -1,3 +1,7 @@
 $(document).ready(function(){
-    $('body').css('background','#555555');
+    $('#comment_form textarea').css({'height':'1.5em'}).click(
+    function(){
+        $(this).slideDown(500).css({"height":"10em"});
+        }
+    );
     });
