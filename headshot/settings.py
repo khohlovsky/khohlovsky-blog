@@ -142,12 +142,17 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'django.contrib.flatpages',
     'django.contrib.markup',
-    'lightcomments',
+#    'lightcomments',
     'blogshot',
     'markitup',
     'gunicorn',
+#    'fluent_comments',
+    'crispy_forms',
+#    'django.contrib.comments',
     )
 
+
+COMMENTS_APP = 'fluent_comments'
 #TEMPLATE_CONTEXT_PROCESSORS = (
 #   'django.contrib.auth.context_processors.auth',
 #)

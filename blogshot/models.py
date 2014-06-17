@@ -3,7 +3,7 @@
 from django.db import models
 from autoslug import AutoSlugField
 from pytils.translit import slugify
-from lightcomments.models import Comment
+#from lightcomments.models import Comment
 import datetime
 from django import forms
 
@@ -72,6 +72,6 @@ class IptablePost(models.Model):
    client_ip=models.CharField(verbose_name=u'Ip клиента',max_length=20)
    item=models.ForeignKey(Post)
 
-class IptableComment(models.Model):
-   client_ip=models.CharField(verbose_name=u'Ip клиента',max_length=20)
-   item=models.ForeignKey(Comment)
+#class IptableComment(models.Model):
+#   client_ip=models.CharField(verbose_name=u'Ip клиента',max_length=20)
+#   item=models.ForeignKey(Comment)

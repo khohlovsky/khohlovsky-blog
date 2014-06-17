@@ -15,7 +15,6 @@
 <div id='slug' class='{{post.slug}}'> </div>
 <div id='{{post.slug}}'>
    <div class='title'>
-   <button>hide</button>
       <h3>{{post.title}}</h3>
    </div>
    {% load markup %}
@@ -28,17 +27,6 @@
 	    
 	 </div>
    </div>
-</div>
-
-<h3 class='title'>Комментарии:</h3>
-<div id="comment_list">
-{% include 'comment.html' %}
-</div>
-<div id='comment_form'>
-{%csrf_token%} 
-{{ CommentForm.nick }}
-{{ CommentForm.message }}
-<button>Фигануть</button>
 </div>
 
 {% endblock %}

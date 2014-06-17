@@ -1,15 +1,13 @@
 #coding:utf-8
 
 from datetime import datetime
-from models import Post, Category, Tag, IptablePost,IptableComment
-from lightcomments.models import Comment
-from lightcomments.form import CommentForm
+from models import Post, Category, Tag
 from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.core.context_processors import csrf
-from django.contrib import auth
+#from django.contrib import auth
 from django.template import RequestContext
-from forms import LoginForm
+#from forms import LoginForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from headshot import settings
 from django.http import HttpResponse
@@ -19,11 +17,10 @@ from django.http import HttpResponse
 def post (request,slug):
    try:
       query=Post.objects.get(slug=slug)
-      comments=Comment.objects.filter(post=query.id)
    except Post.DoesNotExist:
       raise Http404()
    tags=query.tags.all()
-   return render_to_response('post.html',{'post':query,'tags':tags,'comments':comments,'CommentForm':CommentForm,},context_instance=RequestContext(request))
+   return render_to_response('post.html',{'post':query,'tags':tags,},context_instance=RequestContext(request))
    
 def lists(request,slug,url):
    if url == 'category':
@@ -58,8 +55,6 @@ def save(request,model):
       ip = request.META.get('REMOTE_ADDR', '') or request.META.get('HTTP_X_FORWARDED_FOR', '')
       this_id=request.POST.get('slug',) or request.POST.get('id',)
       funct=request.POST.get('funct',)
-      if model.__name__=='IptableComment':
-	 thismod=Comment.objects.get(id=this_id)
       if model.__name__=='IptablePost':
 	 thismod=Post.objects.get(slug=this_id)
       i=model.objects.filter(client_ip=ip,item=thismod)
@@ -76,28 +71,3 @@ def save(request,model):
 	    thismod.save()
 	 rating=str(thismod.rating)
       return HttpResponse(rating)
-
-
-def comment_save(request):
-    if request.is_ajax():
-        nick=request.POST.get('nick')
-        message=request.POST.get('message')
-        slug=request.POST.get('slug')
-        try:
-            post=Post.objects.get(slug=slug)
-            comment=Comment(nick=nick,message=message,post_id=post.id)
-            comment.save()
-        except error:
-            HttpREsponse("false")
-        query=Post.objects.get(slug=slug)
-        comments=Comment.objects.filter(post=query.id)
-        return render_to_response('comment.html',{'comments':comments,},context_instance=RequestContext(request))
-
-
-
-def get_comment(request):
-    if request.is_ajax():
-        slug=request.POST.get('slug')
-        query=Post.objects.get(slug=slug)
-        comments=Comment.objects.filter(post=query.id)
-        return render_to_response('comment.html',{'comments':comments,},context_instance=RequestContext(request))
