@@ -38,7 +38,7 @@ body a:hover{ color:#91AE45; text-decoration:none;cursor:pointer;}
 
 #header{margin:0 auto;width:1000px; height:250px;background: url('../images/header.png') no-repeat right;}
 
-#header_fon{background: url('../images/header_us.png') no-repeat;background-position:left top;padding:10px;}
+#header_fon{background: url('../images/header_us.png') no-repeat;background-position:left top;padding:5px;}
 
 /* менюшечка */
 #nav_wrapper_1{ margin:0 auto;width:100%;height:30px;background:url('../images/menu.png');}
